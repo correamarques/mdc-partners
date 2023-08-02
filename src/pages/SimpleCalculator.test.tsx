@@ -1,5 +1,5 @@
 import { render, screen } from "../utils/test-utils";
-import { SimpleCalculator } from "./SimpleCalculator";
+import SimpleCalculator from "./SimpleCalculator";
 
 const renderPage = () => {
   return render(<SimpleCalculator />);

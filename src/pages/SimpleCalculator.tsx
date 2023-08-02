@@ -3,11 +3,11 @@ import { Header } from "../components/shared/Header";
 import { useState } from "react";
 import "./SimpleCalculator.css";
 
-export function SimpleCalculator() {
+export default function SimpleCalculator() {
   const [numberOne, setNumberOne] = useState<number>();
   const [numberTwo, setNumberTwo] = useState<number>();
   const [operator, setOperator] = useState<string>();
-  const [result, setResult] = useState<string>();
+  const [result, setResult] = useState<number>();
 
   const handleOperatorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -15,20 +15,51 @@ export function SimpleCalculator() {
     setOperator(allowedOperators.includes(value) ? value : "");
   };
 
+  const addition = (x: number, y: number) => setResult(x + y);
+  const division = (x: number, y: number) => setResult(x / y);
+  const multiplication = (x: number, y: number) => setResult(x * y);
+  const subtraction = (x: number, y: number) => setResult(x - y);
+
   const handleCalculator = () => {
-    console.log("do the magic");
+    if (
+      numberOne !== undefined &&
+      numberTwo !== undefined &&
+      operator !== undefined
+    ) {
+      switch (operator) {
+        case "+":
+          addition(numberOne, numberTwo);
+          break;
+        case "/":
+          division(numberOne, numberTwo);
+          break;
+        case "*":
+          multiplication(numberOne, numberTwo);
+          break;
+        default:
+          subtraction(numberOne, numberTwo);
+      }
+    }
+  };
+
+  const pageInfo = () => {
+    return (
+      <div className="pageInfo">
+        <h1 data-testid="title" className="text-center">
+          Simple Calculator
+        </h1>
+        <p data-testid="description" className="text-center">
+          Create a calculator that takes two numbers and an operator (+, -, *,
+          /) and returns the result of the operation.
+        </p>
+      </div>
+    );
   };
 
   return (
     <>
       <Header />
-      <h1 data-testid="title" className="text-center">
-        Simple Calculator
-      </h1>
-      <p data-testid="description" className="text-center">
-        Create a calculator that takes two numbers and an operator (+, -, *, /)
-        and returns the result of the operation.
-      </p>
+      {pageInfo()}
 
       <div className="flex-container">
         <input
@@ -42,16 +73,6 @@ export function SimpleCalculator() {
           className="numberOne"
         />
         <input
-          type="number"
-          name="number-two"
-          id="number-two"
-          data-testid="number-two"
-          placeholder="Type another number"
-          defaultValue={numberTwo}
-          onChange={(e) => setNumberTwo(Number(e.target.value))}
-          className="numberTwo"
-        />
-        <input
           type="text"
           name="operator"
           id="operator"
@@ -62,6 +83,16 @@ export function SimpleCalculator() {
           onChange={handleOperatorChange}
           placeholder="Operators (+, -, *, /)"
           className="operator"
+        />
+        <input
+          type="number"
+          name="number-two"
+          id="number-two"
+          data-testid="number-two"
+          placeholder="Type another number"
+          defaultValue={numberTwo}
+          onChange={(e) => setNumberTwo(Number(e.target.value))}
+          className="numberTwo"
         />
         <Button
           color="secondary"

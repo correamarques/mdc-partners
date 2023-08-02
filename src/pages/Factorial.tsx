@@ -2,7 +2,7 @@ import { Row, Col } from "reactstrap";
 import { Header } from "../components/shared/Header";
 import { useState } from "react";
 
-export function Factorial() {
+export default function Factorial() {
   const [number, setNumber] = useState<number>();
   const [factorial, setFactorial] = useState<number>();
 

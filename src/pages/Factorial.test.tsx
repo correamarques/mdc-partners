@@ -1,5 +1,5 @@
 import { render, screen } from "../utils/test-utils";
-import { Factorial } from "./Factorial";
+import Factorial from "./Factorial";
 
 const renderPage = () => {
   return render(<Factorial />);
