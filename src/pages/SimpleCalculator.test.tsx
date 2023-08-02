@@ -56,22 +56,10 @@ describe("SimpleCalculator", () => {
     expect(button).toHaveTextContent("=");
   });
 
-  // it("Should have a input to display the result", () => {
-  //   renderPage();
-  //   const result = screen.getByTestId("result");
-  //   expect(result).toBeInTheDocument();
-  //   expect(result).toHaveAttribute("disabled");
-  //   expect(result).toHaveAttribute(
-  //     "placeholder",
-  //     "The result will appear here"
-  //   );
-  // });
-
-  // it("Should have a button to calculate the factorial", () => {
-  //   renderPage();
-  //   const button = screen.getByTestId("button");
-  //   expect(button).toBeInTheDocument();
-  //   expect(button).toHaveTextContent("Calculate");
-  //   expect(button).toHaveAttribute("type", "button");
-  // });
+  it("Should have input to display the result", () => {
+    renderPage();
+    const input = screen.getByTestId("result");
+    expect(input).toBeInTheDocument();
+    expect(input).toHaveAttribute("disabled");
+  });
 });
