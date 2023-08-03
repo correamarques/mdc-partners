@@ -1,7 +1,8 @@
 import { Button } from "reactstrap";
-import { Header } from "../components/shared/Header";
+import { NavigationBar } from "../components/shared/NavigationBar";
 import { useState } from "react";
 import "./SimpleCalculator.css";
+import Header from "../components/shared/Header";
 
 export default function SimpleCalculator() {
   const [numberOne, setNumberOne] = useState<number>();
@@ -42,24 +43,13 @@ export default function SimpleCalculator() {
     }
   };
 
-  const pageInfo = () => {
-    return (
-      <div className="pageInfo">
-        <h1 data-testid="title" className="text-center">
-          Simple Calculator
-        </h1>
-        <p data-testid="description" className="text-center">
-          Create a calculator that takes two numbers and an operator (+, -, *,
-          /) and returns the result of the operation.
-        </p>
-      </div>
-    );
-  };
-
   return (
     <>
-      <Header />
-      {pageInfo()}
+      <NavigationBar />
+      <Header
+        title="Simple Calculator"
+        description="Create a calculator that takes two numbers and an operator (+, -, *, /) and returns the result of the operation."
+      />
 
       <div className="flex-container">
         <input

@@ -1,68 +1,29 @@
 import { render, screen } from "../../utils/test-utils";
-import { Header } from "./Header";
+import Header from "./Header";
+
+const renderPage = (title: string, description: string) => {
+  return render(<Header title={title} description={description} />);
+};
 
 describe("Header", () => {
-  it("Should have link to Simple Calculator", () => {
-    render(<Header />);
-    const link = screen.getByTestId("nav-simple-calculator");
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("href", "/simple-calculator");
-    expect(link).toHaveTextContent("Simple Calculator");
+  it("Should render the component", () => {
+    renderPage("", "");
   });
 
-  it("Should have link to Prime Numbers", () => {
-    render(<Header />);
-    const link = screen.getByTestId("nav-prime-numbers");
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("href", "/prime-numbers");
-    expect(link).toHaveTextContent("Prime Numbers");
+  it("Should have title", () => {
+    const expectedTitle = "A beautiful title";
+    renderPage(expectedTitle, "");
+    const title = screen.getByTestId("title");
+    expect(title).toBeInTheDocument();
+    expect(title).toHaveTextContent(expectedTitle);
   });
 
-  it("Should have link to Factorial", () => {
-    render(<Header />);
-    const link = screen.getByTestId("nav-factorial");
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("href", "/factorial");
-    expect(link).toHaveTextContent("Factorial");
-  });
+  it("Should have description about how to use the page", () => {
+    const expectedDescription = "A beautiful description";
 
-  it("Should have link to Palindrome", () => {
-    render(<Header />);
-    const link = screen.getByTestId("nav-palindrome");
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("href", "/palindrome");
-    expect(link).toHaveTextContent("Palindrome");
-  });
-
-  it("Should have link to Table", () => {
-    render(<Header />);
-    const link = screen.getByTestId("nav-table");
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("href", "/table");
-    expect(link).toHaveTextContent("Table");
-  });
-
-  it("Should have link to Vowel Counter", () => {
-    render(<Header />);
-    const link = screen.getByTestId("nav-vowel-counter");
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("href", "/vowel-counter");
-    expect(link).toHaveTextContent("Vowel Counter");
-  });
-
-  it("Should have link to Grade Average", () => {
-    render(<Header />);
-    const link = screen.getByTestId("nav-grade-average");
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("href", "/grade-average");
-    expect(link).toHaveTextContent("Grade Average");
-  });
-
-  it("Should have link to Interest Calculation", () => {
-    render(<Header />);
-    const link = screen.getByTestId("nav-interest-calculation");
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("href", "/interest-calculation");
-    expect(link).toHaveTextContent("Interest Calculation");
+    renderPage("", expectedDescription);
+    const description = screen.getByTestId("description");
+    expect(description).toBeInTheDocument();
+    expect(description).toHaveTextContent(expectedDescription);
   });
 });

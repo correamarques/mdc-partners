@@ -1,13 +1,14 @@
 import { Button } from "reactstrap";
-import { Header } from "../components/shared/Header";
+import { NavigationBar } from "../components/shared/NavigationBar";
 import { useState } from "react";
+import Header from "../components/shared/Header";
 
 export default function Table() {
   const [number, setNumber] = useState<number>();
   const [rows, setRows] = useState<JSX.Element[]>();
   const [showResult, setShowResult] = useState<boolean>(false);
 
-  const handleGenerateTable = () => {
+  const handleOnClickGenerateTable = () => {
     if (number !== undefined) {
       const data: JSX.Element[] = [];
       for (let i = 1; i <= 10; i++) {
@@ -26,29 +27,18 @@ export default function Table() {
     }
   };
 
-  const handleWordChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChangeWord = (event: React.ChangeEvent<HTMLInputElement>) => {
     setShowResult(false);
     setNumber(Number(event.target.value));
   };
 
-  const pageInfo = () => {
-    return (
-      <div className="pageInfo">
-        <h1 data-testid="title" className="text-center">
-          Table
-        </h1>
-        <p data-testid="description" className="text-center">
-          Create a program that receives a number from the user and displays the
-          table of that number, from 1 to 10.
-        </p>
-      </div>
-    );
-  };
-
   return (
     <>
-      <Header />
-      {pageInfo()}
+      <NavigationBar />
+      <Header
+        title="Table"
+        description="Create a program that receives a number from the user and displays the table of that number, from 1 to 10."
+      />
       <div className="flex-container">
         <input
           type="number"
@@ -58,12 +48,12 @@ export default function Table() {
           placeholder="Type the number of rows to be generated"
           style={{ width: 800 }}
           defaultValue={number}
-          onChange={handleWordChanged}
+          onChange={handleOnChangeWord}
         />
         <Button
           color="secondary"
           data-testid="button"
-          onClick={handleGenerateTable}
+          onClick={handleOnClickGenerateTable}
         >
           Generate table
         </Button>

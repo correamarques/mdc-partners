@@ -1,6 +1,7 @@
 import { Row, Col } from "reactstrap";
-import { Header } from "../components/shared/Header";
+import { NavigationBar } from "../components/shared/NavigationBar";
 import { useState } from "react";
+import Header from "../components/shared/Header";
 
 export default function Factorial() {
   const [number, setNumber] = useState<number>();
@@ -18,13 +19,11 @@ export default function Factorial() {
 
   return (
     <>
-      <Header />
-      <h1 data-testid="title">Factorial</h1>
-      <p data-testid="description">
-        Write a function to calculate the factorial of a number. Next, create a
-        program that allows the user to enter a number and displays the
-        corresponding factorial.
-      </p>
+      <NavigationBar />
+      <Header
+        title="Factorial"
+        description="Write a function to calculate the factorial of a number. Next, create a program that allows the user to enter a number and displays the corresponding factorial."
+      />
       <Row>
         <Col md={4}>
           <input

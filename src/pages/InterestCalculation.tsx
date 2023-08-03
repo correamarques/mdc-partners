@@ -1,9 +1,9 @@
-import { Header } from "../components/shared/Header";
+import { NavigationBar } from "../components/shared/NavigationBar";
 
 export default function InterestCalculation() {
   return (
     <>
-      <Header />
+      <NavigationBar />
       <h1>InterestCalculation</h1>
     </>
   );

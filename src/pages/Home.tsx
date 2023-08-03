@@ -1,10 +1,14 @@
-import { Header } from "../components/shared/Header";
+import Header from "../components/shared/Header";
+import { NavigationBar } from "../components/shared/NavigationBar";
 
 export default function HomePage() {
   return (
     <>
-      <Header />
-      <h1>Estou na home page</h1>
+      <NavigationBar />
+      <Header
+        title="Home page"
+        description="Select a menu to start using this beautiful website"
+      />
     </>
   );
 }

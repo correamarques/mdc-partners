@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Header } from "../components/shared/Header";
+import { NavigationBar } from "../components/shared/NavigationBar";
 import { Button } from "reactstrap";
+import Header from "../components/shared/Header";
 
 export default function PrimeNumbers() {
   const [number, setNumber] = useState<number>();
@@ -36,20 +37,6 @@ export default function PrimeNumbers() {
 
   const handlePrintTenPrimeNumbers = () => {
     setPrimeNumbers("2, 3, 5, 7, 11, 13, 17, 19, 23, 29");
-  };
-
-  const pageInfo = () => {
-    return (
-      <div className="pageInfo">
-        <h1 data-testid="title" className="text-center">
-          Prime Numbers
-        </h1>
-        <p data-testid="description" className="text-center">
-          Write a function that checks whether a number is prime or not. Then
-          create a program that prints the first 10 prime numbers.
-        </p>
-      </div>
-    );
   };
 
   const divCheckIfIsPrimeNumber = () => {
@@ -99,8 +86,11 @@ export default function PrimeNumbers() {
 
   return (
     <>
-      <Header />
-      {pageInfo()}
+      <NavigationBar />
+      <Header
+        title="Prime Numbers"
+        description="Write a function that checks whether a number is prime or not. Then create a program that prints the first 10 prime numbers."
+      />
       {divCheckIfIsPrimeNumber()}
       {divPrintTheFirstTenPrimeNumbers()}
     </>

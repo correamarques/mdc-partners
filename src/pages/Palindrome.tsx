@@ -1,12 +1,13 @@
 import { Button } from "reactstrap";
-import { Header } from "../components/shared/Header";
+import { NavigationBar } from "../components/shared/NavigationBar";
 import { useState } from "react";
+import Header from "../components/shared/Header";
 
 export default function Palindrome() {
   const [word, setWord] = useState<string>("");
   const [result, setResult] = useState<string>("");
 
-  const handleIsPalindrome = () => {
+  const handleOnClickIsPalindrome = () => {
     const chars = word.split("");
     const reverse = [...chars.reverse()];
     const isPalindrome = JSON.stringify(chars) === JSON.stringify(reverse);
@@ -18,25 +19,13 @@ export default function Palindrome() {
     setResult("");
   };
 
-  const pageInfo = () => {
-    return (
-      <div className="pageInfo">
-        <h1 data-testid="title" className="text-center">
-          Palindrome
-        </h1>
-        <p data-testid="description" className="text-center">
-          Create a function that checks whether a word is a palindrome (that is,
-          whether it reads the same backwards and forwards). The program must
-          ask the user for a word and inform whether or not it is a palindrome.
-        </p>
-      </div>
-    );
-  };
-
   return (
     <>
-      <Header />
-      {pageInfo()}
+      <NavigationBar />
+      <Header
+        title="Palindrome"
+        description="Create a function that checks whether a word is a palindrome (that is, whether it reads the same backwards and forwards). The program must ask the user for a word and inform whether or not it is a palindrome."
+      />
       <div className="flex-container">
         <input
           type="text"
@@ -49,7 +38,7 @@ export default function Palindrome() {
         <Button
           color="secondary"
           data-testid="button"
-          onClick={handleIsPalindrome}
+          onClick={handleOnClickIsPalindrome}
         >
           Is palindrome?
         </Button>
