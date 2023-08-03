@@ -12,6 +12,7 @@ export default function Palindrome() {
     const isPalindrome = JSON.stringify(chars) === JSON.stringify(reverse);
     setResult(isPalindrome ? "yes" : "no");
   };
+
   const handleWordChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
     setWord(event.target.value);
     setResult("");
