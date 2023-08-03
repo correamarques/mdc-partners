@@ -72,7 +72,7 @@ export default function PrimeNumbers() {
       <div className="flex-container" style={{ marginTop: "10px" }}>
         <button
           type="button"
-          data-testid="button"
+          data-testid="print-prime-numbers"
           onClick={handlePrintTenPrimeNumbers}
         >
           Print the first 10 prime numbers
