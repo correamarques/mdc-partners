@@ -16,7 +16,7 @@ export default function InterestCalculation() {
     ) {
       const factor = 1 + interestRate / 100;
       const amount = initialCapital * Math.pow(factor, investmentTime);
-      setResult(amount.toString());
+      setResult(amount.toFixed(2).toString());
     }
   };
 

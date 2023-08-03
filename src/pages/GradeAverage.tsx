@@ -20,7 +20,7 @@ export default function GradeAverage() {
   const handleOnClickCalcAverage = () => {
     if (grade1 !== undefined && grade2 !== undefined && grade3 !== undefined) {
       const average = (grade1 + grade2 + grade3) / 3;
-      setResult(average.toString());
+      setResult(average.toFixed().toString());
     }
   };
 

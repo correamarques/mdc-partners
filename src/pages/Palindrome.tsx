@@ -10,8 +10,8 @@ export default function Palindrome() {
     if (word === undefined || word.length == 0) {
       setResult("Please type something first");
     } else {
-      const chars = word.split("");
-      const reverse = [...chars.reverse()];
+      const chars = word.replace(/\s/g, "").split("");
+      const reverse = [...word.replace(/\s/g, "").split("").reverse()];
       const isPalindrome = JSON.stringify(chars) === JSON.stringify(reverse);
       setResult(isPalindrome ? "yes" : "no");
     }
