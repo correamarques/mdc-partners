@@ -1,0 +1,22 @@
+.navMenu {
+  position: absolute;
+  top: 3%;
+  left: 5%;
+}
+
+.navMenu a {
+  color: #f6f4e6;
+  text-decoration: none;
+  font-size: .8em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  width: 200px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.navMenu a:hover {
+  color: #196ec4;
+}

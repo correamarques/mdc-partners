@@ -7,9 +7,9 @@ export default function Header(props: IProps) {
   const { title, description } = props;
   return (
     <div className="pageInfo">
-      <h1 data-testid="title" className="text-center">
+      <h2 data-testid="title" className="text-center">
         {title}
-      </h1>
+      </h2>
       <p data-testid="description" className="text-center">
         {description}
       </p>

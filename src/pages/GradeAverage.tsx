@@ -67,6 +67,7 @@ export default function GradeAverage() {
           defaultValue={result}
           placeholder="The result will appear here"
           disabled
+          style={{ width: "200px" }}
         />
       </div>
     </>

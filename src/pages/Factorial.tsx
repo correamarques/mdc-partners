@@ -48,13 +48,9 @@ export default function Factorial() {
           defaultValue={factorial}
           placeholder="The result will appear here"
           disabled
+          style={{ width: "200px" }}
         />
       </div>
-
-      {/* <Row>
-        <Col md={4}>
-        </Col>
-      </Row> */}
     </>
   );
 }
