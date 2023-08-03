@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Header from "../components/shared/Header";
 import { NavigationBar } from "../components/shared/NavigationBar";
-import { Button } from "reactstrap";
 
 export default function InterestCalculation() {
   const [initialCapital, setInitialCapital] = useState<number>();
