@@ -1,11 +1,11 @@
 import { render, screen } from "../utils/test-utils";
-import GradeAverage from "./GradeAverage";
+import InterestCalculation from "./InterestCalculation";
 
 const renderPage = () => {
-  return render(<GradeAverage />);
+  return render(<InterestCalculation />);
 };
 
-describe("GradeAverage", () => {
+describe("InterestCalculation", () => {
   it("Should render the component", () => {
     renderPage();
   });
@@ -14,7 +14,7 @@ describe("GradeAverage", () => {
     renderPage();
     const title = screen.getByTestId("title");
     expect(title).toBeInTheDocument();
-    expect(title).toHaveTextContent("Grade Average");
+    expect(title).toHaveTextContent("Interest Calculation");
   });
 
   it("Should have description about how to use the page", () => {
@@ -22,37 +22,45 @@ describe("GradeAverage", () => {
     const description = screen.getByTestId("description");
     expect(description).toBeInTheDocument();
     const expectedDescription =
-      "Create a program that takes a student's grades in three different subjects and calculates the average of the grades. Then display the calculated average.";
+      "Create a function that calculates the final value of an investment based on initial capital, interest rate, and investment time (in months). The program must prompt the user for these values and display the final value.";
     expect(description).toHaveTextContent(expectedDescription);
   });
 
-  it("Should have a input to type grade 1", () => {
+  it("Should have a input to type Initial Capital", () => {
     renderPage();
-    const input = screen.getByTestId("grade-1");
+    const input = screen.getByTestId("initialCapital");
     expect(input).toBeInTheDocument();
     expect(input).toHaveAttribute("type", "number");
-    expect(input).toHaveAttribute("placeholder", "Type number here");
-  });
-  it("Should have a input to type grade 2", () => {
-    renderPage();
-    const input = screen.getByTestId("grade-2");
-    expect(input).toBeInTheDocument();
-    expect(input).toHaveAttribute("type", "number");
-    expect(input).toHaveAttribute("placeholder", "Type number here");
-  });
-  it("Should have a input to type grade 3", () => {
-    renderPage();
-    const input = screen.getByTestId("grade-3");
-    expect(input).toBeInTheDocument();
-    expect(input).toHaveAttribute("type", "number");
-    expect(input).toHaveAttribute("placeholder", "Type number here");
+    expect(input).toHaveAttribute("min", "1");
+    expect(input).toHaveAttribute("placeholder", "Type Initial Capital");
   });
 
-  it("Should have a button to calc the average of grades", () => {
+  it("Should have a input to type Interest Rate", () => {
+    renderPage();
+    const input = screen.getByTestId("interestRate");
+    expect(input).toBeInTheDocument();
+    expect(input).toHaveAttribute("type", "number");
+    expect(input).toHaveAttribute("min", "1");
+    expect(input).toHaveAttribute("placeholder", "Type Interest Rate");
+  });
+
+  it("Should have a input to type Investiment Time", () => {
+    renderPage();
+    const input = screen.getByTestId("investimentTime");
+    expect(input).toBeInTheDocument();
+    expect(input).toHaveAttribute("type", "number");
+    expect(input).toHaveAttribute("min", "1");
+    expect(input).toHaveAttribute(
+      "placeholder",
+      "Type Investiment Time (in months)"
+    );
+  });
+
+  it("Should have a button to calc the investment", () => {
     renderPage();
     const button = screen.getByTestId("button");
     expect(button).toBeInTheDocument();
-    expect(button).toHaveTextContent("Calc average");
+    expect(button).toHaveTextContent("Calc Investment");
   });
 
   it("Should have input to display the result", () => {

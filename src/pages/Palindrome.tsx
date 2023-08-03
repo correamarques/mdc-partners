@@ -1,4 +1,3 @@
-import { Button } from "reactstrap";
 import { NavigationBar } from "../components/shared/NavigationBar";
 import { useState } from "react";
 import Header from "../components/shared/Header";
@@ -8,10 +7,14 @@ export default function Palindrome() {
   const [result, setResult] = useState<string>("");
 
   const handleOnClickIsPalindrome = () => {
-    const chars = word.split("");
-    const reverse = [...chars.reverse()];
-    const isPalindrome = JSON.stringify(chars) === JSON.stringify(reverse);
-    setResult(isPalindrome ? "yes" : "no");
+    if (word === undefined || word.length == 0) {
+      setResult("Please type something first");
+    } else {
+      const chars = word.split("");
+      const reverse = [...chars.reverse()];
+      const isPalindrome = JSON.stringify(chars) === JSON.stringify(reverse);
+      setResult(isPalindrome ? "yes" : "no");
+    }
   };
 
   const handleWordChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,13 +38,14 @@ export default function Palindrome() {
           defaultValue={word}
           onChange={handleWordChanged}
         />
-        <Button
-          color="secondary"
+        <button
+          type="button"
           data-testid="button"
           onClick={handleOnClickIsPalindrome}
+          style={{ width: "200px" }}
         >
           Is palindrome?
-        </Button>
+        </button>
         <input
           type="text"
           data-testid="result"

@@ -34,7 +34,7 @@ describe("PrimeNumbers", () => {
     expect(input).toHaveAttribute("max", "10");
     expect(input).toHaveAttribute(
       "placeholder",
-      "Type the number of rows to be generated"
+      "Type the number to generate the multiplication table"
     );
   });
 
@@ -44,25 +44,4 @@ describe("PrimeNumbers", () => {
     expect(button).toBeInTheDocument();
     expect(button).toHaveTextContent("Generate table");
   });
-
-  // it("Should have input to display the result", () => {
-  //   renderPage();
-  //   const input = screen.getByTestId("result");
-  //   expect(input).toBeInTheDocument();
-  //   expect(input).toHaveAttribute("disabled");
-  // });
-
-  // it("Should have a button to print the first 10 prime numbers", () => {
-  //   renderPage();
-  //   const button = screen.getByTestId("print-prime-numbers");
-  //   expect(button).toBeInTheDocument();
-  //   expect(button).toHaveTextContent("Print the first 10 prime numbers");
-  // });
-
-  // it("Should have input to display the first 10 prime numbers", () => {
-  //   renderPage();
-  //   const input = screen.getByTestId("prime-numbers");
-  //   expect(input).toBeInTheDocument();
-  //   expect(input).toHaveAttribute("disabled");
-  // });
 });

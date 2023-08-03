@@ -1,4 +1,3 @@
-import { Button } from "reactstrap";
 import { NavigationBar } from "../components/shared/NavigationBar";
 import { useState } from "react";
 import "./SimpleCalculator.css";
@@ -21,7 +20,7 @@ export default function SimpleCalculator() {
   const multiplication = (x: number, y: number) => setResult(x * y);
   const subtraction = (x: number, y: number) => setResult(x - y);
 
-  const handleCalculator = () => {
+  const handleOnClick = () => {
     if (
       numberOne !== undefined &&
       numberTwo !== undefined &&
@@ -54,8 +53,6 @@ export default function SimpleCalculator() {
       <div className="flex-container">
         <input
           type="number"
-          name="number-one"
-          id="number-one"
           data-testid="number-one"
           placeholder="Type number here"
           defaultValue={numberOne}
@@ -64,8 +61,6 @@ export default function SimpleCalculator() {
         />
         <input
           type="text"
-          name="operator"
-          id="operator"
           data-testid="operator"
           maxLength={1}
           defaultValue={operator}
@@ -76,26 +71,26 @@ export default function SimpleCalculator() {
         />
         <input
           type="number"
-          name="number-two"
-          id="number-two"
           data-testid="number-two"
           placeholder="Type another number"
           defaultValue={numberTwo}
           onChange={(e) => setNumberTwo(Number(e.target.value))}
           className="numberTwo"
         />
-        <Button
-          color="secondary"
+        <button
+          type="button"
           data-testid="button"
-          onClick={handleCalculator}
+          onClick={handleOnClick}
+          style={{ width: "200px" }}
         >
           =
-        </Button>
+        </button>
         <input
           type="text"
           data-testid="result"
           defaultValue={result}
           className="result"
+          placeholder="The result will appear here"
           disabled
         />
       </div>

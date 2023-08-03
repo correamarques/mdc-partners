@@ -1,4 +1,3 @@
-import { Button } from "reactstrap";
 import { NavigationBar } from "../components/shared/NavigationBar";
 import { useState } from "react";
 import Header from "../components/shared/Header";
@@ -45,18 +44,19 @@ export default function Table() {
           min={1}
           max={10}
           data-testid="input-rows"
-          placeholder="Type the number of rows to be generated"
+          placeholder="Type the number to generate the multiplication table"
           style={{ width: 800 }}
           defaultValue={number}
           onChange={handleOnChangeWord}
         />
-        <Button
-          color="secondary"
+        <button
+          type="button"
           data-testid="button"
           onClick={handleOnClickGenerateTable}
+          style={{ width: "200px" }}
         >
           Generate table
-        </Button>
+        </button>
       </div>
       {showResult && (
         <table>

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Header from "../components/shared/Header";
 import { NavigationBar } from "../components/shared/NavigationBar";
-import { Button } from "reactstrap";
 
 export default function GradeAverage() {
   const [grade1, setGrade1] = useState<number>();
@@ -54,17 +53,19 @@ export default function GradeAverage() {
           defaultValue={grade3}
           onChange={handleOnChangeGrade3}
         />
-        <Button
-          color="secondary"
+        <button
+          type="button"
           data-testid="button"
           onClick={handleOnClickCalcAverage}
+          style={{ width: "200px" }}
         >
           Calc average
-        </Button>
+        </button>
         <input
           type="text"
           data-testid="result"
           defaultValue={result}
+          placeholder="The result will appear here"
           disabled
         />
       </div>

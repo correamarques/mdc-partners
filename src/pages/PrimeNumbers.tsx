@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { NavigationBar } from "../components/shared/NavigationBar";
-import { Button } from "reactstrap";
 import Header from "../components/shared/Header";
 
 export default function PrimeNumbers() {
@@ -17,7 +16,7 @@ export default function PrimeNumbers() {
     return true;
   };
 
-  const handleIsPrime = () => {
+  const handleIOnClickIsPrime = () => {
     if (number === undefined) {
       setResult("Please type a number first");
     } else {
@@ -30,7 +29,7 @@ export default function PrimeNumbers() {
     }
   };
 
-  const handleNumberChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChangeNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNumber(Number(event.target.value));
     setResult("");
   };
@@ -47,11 +46,16 @@ export default function PrimeNumbers() {
           data-testid="number"
           placeholder="Type number here"
           defaultValue={number}
-          onChange={handleNumberChanged}
+          onChange={handleOnChangeNumber}
         />
-        <Button color="secondary" data-testid="button" onClick={handleIsPrime}>
+        <button
+          type="button"
+          data-testid="button"
+          onClick={handleIOnClickIsPrime}
+          style={{ width: "200px" }}
+        >
           Is prime?
-        </Button>
+        </button>
         <input
           type="text"
           data-testid="result"
@@ -66,13 +70,13 @@ export default function PrimeNumbers() {
   const divPrintTheFirstTenPrimeNumbers = () => {
     return (
       <div className="flex-container" style={{ marginTop: "10px" }}>
-        <Button
-          color="secondary"
-          data-testid="print-prime-numbers"
+        <button
+          type="button"
+          data-testid="button"
           onClick={handlePrintTenPrimeNumbers}
         >
           Print the first 10 prime numbers
-        </Button>
+        </button>
         <input
           type="text"
           data-testid="prime-numbers"

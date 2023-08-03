@@ -61,5 +61,6 @@ describe("SimpleCalculator", () => {
     const input = screen.getByTestId("result");
     expect(input).toBeInTheDocument();
     expect(input).toHaveAttribute("disabled");
+    expect(input).toHaveAttribute("placeholder", "The result will appear here");
   });
 });

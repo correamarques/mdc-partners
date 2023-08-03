@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { NavigationBar } from "../components/shared/NavigationBar";
-import { Button } from "reactstrap";
 import Header from "../components/shared/Header";
 
 export default function VowelCounter() {
@@ -35,13 +34,14 @@ export default function VowelCounter() {
           onChange={handleOnChangeSentence}
           style={{ width: 520 }}
         />
-        <Button
-          color="secondary"
+        <button
+          type="button"
           data-testid="button"
           onClick={handleOnClickHowManyVowels}
+          style={{ width: "200px" }}
         >
           How many vowels?
-        </Button>
+        </button>
         <input
           type="text"
           data-testid="result"
