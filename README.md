@@ -1,4 +1,4 @@
-# MDC Partners mid dev test
+# React mid dev test
 
 ## Fabian Corrêa Marques
 
